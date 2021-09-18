@@ -4,6 +4,7 @@ from src.bcint.state_machine.func_frame import FuncFrame
 from src.bcint.state_machine.func_state import FuncState
 from src.bcint.state_machine.eval_stack import EvalStack
 from src.bcint.state_machine.locals import Locals
+from src.bcint.state_machine.heap import Heap
 
 
 def test_execute():
@@ -15,7 +16,7 @@ def test_execute():
     func_state = FuncState(1)
 
     # Act
-    ReturnValueProcessor.execute(None, func_frame, func_state, [])
+    ReturnValueProcessor.execute(None, func_frame, func_state, Heap())
 
     # Assert
     assert eval_stack.length == 0

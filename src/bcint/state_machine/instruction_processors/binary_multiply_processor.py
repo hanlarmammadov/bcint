@@ -4,8 +4,10 @@ from src.bcint.state_machine.func_state import FuncState
 from src.bcint.state_machine.heap import Heap
 
 
-class LoadFastProcessor(InstructionProcessorBase):
+class BinaryMultiplyProcessor(InstructionProcessorBase):
 
     @staticmethod
     def execute(operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
-        func_frame.eval_stack.push(func_frame.locals_dict.load(operand))
+        value2 = func_frame.eval_stack.pop()
+        value1 = func_frame.eval_stack.pop()
+        func_frame.eval_stack.push(value1 * value2)

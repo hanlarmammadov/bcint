@@ -2,6 +2,7 @@ from src.bcint.loader.opcode_loader import OpcodeLoader
 from src.bcint.state_machine.func_state_machine import FuncStateMachine
 from src.bcint.state_machine.function import Function
 from src.bcint.state_machine.processors import Processors
+from src.bcint.state_machine.heap import Heap
 
 
 def test_return_integer():
@@ -12,7 +13,7 @@ def test_return_integer():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()
@@ -30,7 +31,7 @@ def test_add_integer_constants_and_return_result():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()
@@ -51,7 +52,7 @@ def test_add_two_integer_variables_and_return_result():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()
@@ -74,7 +75,7 @@ def test_load_multiple_values_and_return_one():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()
@@ -95,7 +96,7 @@ def test_multiple_int_assignations():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()
@@ -115,7 +116,7 @@ def test_multiple_int_assignations_2():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()
@@ -135,7 +136,7 @@ def test_function_that_returns_none():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()
@@ -153,7 +154,7 @@ def test_function_that_returns_none():
     loader = OpcodeLoader()
     instr_list = loader.load_from_func(function)
     function = Function("test_function", instr_list)
-    func_sm = FuncStateMachine(function, Processors(), [])
+    func_sm = FuncStateMachine(function, Processors(), Heap())
 
     # Act
     func_sm.execute()

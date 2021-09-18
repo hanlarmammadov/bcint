@@ -5,16 +5,17 @@ from src.bcint.state_machine.locals import Locals
 from src.bcint.state_machine.func_state import FuncState
 from src.bcint.state_machine.flow_interruption import FlowInterruption
 from src.bcint.state_machine.processors import Processors
+from src.bcint.state_machine.heap import Heap
 
 
 class FuncStateMachine:
 
-    def __init__(self, func: Function, processors: Processors, gc_heap):
+    def __init__(self, func: Function, processors: Processors, heap: Heap):
         self._func_name = func.name
         self._instructions = func.instructions
         self._func_frame = self._create_new_frame()
         self._func_state = FuncState(len(func.instructions))
-        self._gc_heap = gc_heap
+        self._heap = heap
         self._processors = processors
 
     def execute(self):
@@ -27,7 +28,7 @@ class FuncStateMachine:
                 # get instruction processor and run instruction
                 instruction = self._instructions[next_index]
                 processor = self._processors.get(instruction.operation)
-                processor.execute(instruction.operand, self._func_frame, self._func_state, self._gc_heap)
+                processor.execute(instruction.operand, self._func_frame, self._func_state, self._heap)
         except Exception as e:
             raise
 
