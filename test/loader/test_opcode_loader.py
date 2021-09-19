@@ -18,21 +18,40 @@ def test_instructions_loaded_correctly():
     assert len(instr_list) == 10
     assert instr_list[0].operation == int(Opcodes.LOAD_CONST)
     assert instr_list[0].operand == 3
+    assert instr_list[0].offset == 0
+
     assert instr_list[1].operation == int(Opcodes.STORE_FAST)
     assert instr_list[1].operand == 'a'
+    assert instr_list[1].offset == 2
+
     assert instr_list[2].operation == int(Opcodes.LOAD_CONST)
     assert instr_list[2].operand == 4
+    assert instr_list[2].offset == 4
+
     assert instr_list[3].operation == int(Opcodes.STORE_FAST)
     assert instr_list[3].operand == 'b'
+    assert instr_list[3].offset == 6
+
     assert instr_list[4].operation == int(Opcodes.LOAD_FAST)
     assert instr_list[4].operand == 'a'
+    assert instr_list[4].offset == 8
+
     assert instr_list[5].operation == int(Opcodes.LOAD_FAST)
     assert instr_list[5].operand == 'b'
+    assert instr_list[5].offset == 10
+
     assert instr_list[6].operation == int(Opcodes.BINARY_ADD)
     assert instr_list[6].operand is None
+    assert instr_list[6].offset == 12
+
     assert instr_list[7].operation == int(Opcodes.STORE_FAST)
     assert instr_list[7].operand == 'c'
+    assert instr_list[7].offset == 14
+
     assert instr_list[8].operation == int(Opcodes.LOAD_FAST)
     assert instr_list[8].operand == 'c'
+    assert instr_list[8].offset == 16
+
     assert instr_list[9].operation == int(Opcodes.RETURN_VALUE)
     assert instr_list[9].operand is None
+    assert instr_list[9].offset == 18

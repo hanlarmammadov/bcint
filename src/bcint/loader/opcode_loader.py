@@ -11,6 +11,6 @@ class OpcodeLoader():
         bytecode = dis.Bytecode(func)
         instructions_list = []
         for instr in bytecode:
-            instructions_list.append(Instruction(instr.opcode, instr.argval))
+            instructions_list.append(Instruction(instr.opcode, instr.argval, instr.offset))
         return instructions_list
 

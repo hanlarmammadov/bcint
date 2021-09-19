@@ -7,46 +7,28 @@ def test_initialization():
     operation = 100
     operand = 'print'
     # Act
-    inst = Instruction(operation, operand)
+    inst = Instruction(operation, operand, 0)
     # Assert
     assert inst.operation == 100
     assert inst.operand == 'print'
-
-
-def test_instruction_name():
-    # Arrange
-    opcode = Opcodes.LOAD_GLOBAL
-    inst = Instruction(opcode, 'print')
-    # Act
-    name = inst.operation_name
-    # Assert
-    assert name == 'LOAD_GLOBAL'
+    assert inst.operation_name == 'LOAD_CONST'
+    assert inst.offset == 0
 
 
 def test_repr():
     # Arrange
     opcode = Opcodes.LOAD_GLOBAL
-    inst = Instruction(opcode, 'print')
+    inst = Instruction(opcode, 'print', 0)
     # Act
     repr_actual = inst.__repr__()
     # Assert
-    assert repr_actual == '(LOAD_GLOBAL print)'
-
-
-def test_str():
-    # Arrange
-    opcode = Opcodes.LOAD_GLOBAL
-    inst = Instruction(opcode, 'print')
-    # Act
-    str_actual = inst.__str__()
-    # Assert
-    assert str_actual == '(LOAD_GLOBAL print)'
+    assert repr_actual == '(0 LOAD_GLOBAL print)'
 
 
 def test_str_are_equal_to_repr():
     # Arrange
     opcode = Opcodes.LOAD_GLOBAL
-    inst = Instruction(opcode, 'print')
+    inst = Instruction(opcode, 'print', 0)
 
     # Assert
     assert inst.__str__() == inst.__repr__()
