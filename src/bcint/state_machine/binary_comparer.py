@@ -2,28 +2,29 @@ class BinaryComparer:
 
     @staticmethod
     def compare(comparison, value1, value2):
-        match comparison:
-            case 'a':
-                return BinaryComparer._less_than(value1, value2)
-            case 'b':
-                return BinaryComparer._greater_than(value1, value2)
-            case 'b':
-                return BinaryComparer._less_than_or_equal(value1, value2)
-            case 'b':
-                return BinaryComparer._greater_than_or_equal(value1, value2)
-            case 'b':
-                return BinaryComparer._equal(value1, value2)
-            case 'b':
-                return BinaryComparer._not_equal(value1, value2)
-            case _:
-                raise Exception("Wrong comparison code: {code}".format(code=comparison))
+        if comparison == 'a':
+            return BinaryComparer._less_than(value1, value2)
+        elif comparison == 'b':
+            return BinaryComparer._greater_than(value1, value2)
+        elif comparison == 'c':
+            return BinaryComparer._less_than_or_equal(value1, value2)
+        elif comparison == 'd':
+            return BinaryComparer._greater_than_or_equal(value1, value2)
+        elif comparison == 'e':
+            return BinaryComparer._equal(value1, value2)
+        elif comparison == 'f':
+            return BinaryComparer._not_equal(value1, value2)
+        elif comparison == 'g':
+            raise Exception("Wrong comparison code: {code}".format(code=comparison))
 
     @staticmethod
     def _less_than(value1, value2):
-        if BinaryComparer._obj_has_method(value1, '__cmp__') and value1.__cmp__(value2) == -1:
-            return True
-        elif BinaryComparer._obj_has_method(value1, '__lt__') and value1.__lt__(value2):
-            return True
+        if BinaryComparer._obj_has_method(value1, '__cmp__'):
+            return value1.__cmp__(value2) == -1
+        elif BinaryComparer._obj_has_method(value1, '__lt__'):
+            return value1.__lt__(value2)
+        else:
+            return False
 
     @staticmethod
     def _greater_than(value1, value2):
