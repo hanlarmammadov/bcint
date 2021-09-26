@@ -14,9 +14,10 @@ def test_execute():
     locals_dict = Locals()
     func_frame = FuncFrame(eval_stack, locals_dict)
     func_state = FuncState(1)
+    return_value = ReturnValueProcessor()
 
     # Act
-    ReturnValueProcessor.execute(None, func_frame, func_state, Heap())
+    return_value.execute(None, func_frame, func_state, Heap())
 
     # Assert
     assert eval_stack.length == 0

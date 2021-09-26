@@ -55,3 +55,17 @@ def test_instructions_loaded_correctly():
     assert instr_list[9].operation == int(Opcodes.RETURN_VALUE)
     assert instr_list[9].operand is None
     assert instr_list[9].offset == 18
+
+
+def test_instructions_loaded_correctly_2():
+    # Arrange
+    def function():
+        a = 3
+        b = 4
+        c = a < b
+        return c
+    loader = opcode_loader.OpcodeLoader()
+
+    # Act
+    instr_list = loader.load_from_func(function)
+    pass

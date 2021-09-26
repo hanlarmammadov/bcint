@@ -12,9 +12,10 @@ def test_execute():
     locals_dict = Locals()
     locals_dict.save('a', 42)
     func_frame = FuncFrame(eval_stack, locals_dict)
+    load_fast = LoadFastProcessor()
 
     # Act
-    LoadFastProcessor.execute('a', func_frame, FuncState(1), Heap())
+    load_fast.execute('a', func_frame, FuncState(1), Heap())
 
     # Assert
     assert eval_stack.length == 1

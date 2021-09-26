@@ -6,6 +6,5 @@ from src.bcint.state_machine.heap import Heap
 
 class LoadConstProcessor(InstructionProcessorBase):
 
-    @staticmethod
-    def execute(operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
+    def execute(self, operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
         func_frame.eval_stack.push(operand)

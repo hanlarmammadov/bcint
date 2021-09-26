@@ -13,9 +13,10 @@ def test_execute():
     eval_stack.push(5)
     locals_dict = Locals()
     func_frame = FuncFrame(eval_stack, locals_dict)
+    binary_multiply = BinaryMultiplyProcessor()
 
     # Act
-    BinaryMultiplyProcessor.execute(None, func_frame, FuncState(1), Heap())
+    binary_multiply.execute(None, func_frame, FuncState(1), Heap())
 
     # Assert
     assert eval_stack.length == 1

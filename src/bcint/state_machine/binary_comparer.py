@@ -2,19 +2,19 @@ class BinaryComparer:
 
     @staticmethod
     def compare(comparison, value1, value2):
-        if comparison == 'a':
+        if comparison == '<':
             return BinaryComparer._less_than(value1, value2)
-        elif comparison == 'b':
+        elif comparison == '>':
             return BinaryComparer._greater_than(value1, value2)
-        elif comparison == 'c':
+        elif comparison == '<=':
             return BinaryComparer._less_than_or_equal(value1, value2)
-        elif comparison == 'd':
+        elif comparison == '>=':
             return BinaryComparer._greater_than_or_equal(value1, value2)
-        elif comparison == 'e':
+        elif comparison == '=':
             return BinaryComparer._equal(value1, value2)
-        elif comparison == 'f':
+        elif comparison == '!=':
             return BinaryComparer._not_equal(value1, value2)
-        elif comparison == 'g':
+        else:
             raise Exception("Wrong comparison code: {code}".format(code=comparison))
 
     @staticmethod

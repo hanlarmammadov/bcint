@@ -12,9 +12,10 @@ def test_execute():
     eval_stack.push(42)
     locals_dict = Locals()
     func_frame = FuncFrame(eval_stack, locals_dict)
+    pop_top = PopTopProcessor()
 
     # Act
-    PopTopProcessor.execute(None, func_frame, FuncState(1), Heap())
+    pop_top.execute(None, func_frame, FuncState(1), Heap())
 
     # Assert
     assert eval_stack.length == 0
@@ -28,9 +29,10 @@ def test_execute_with_two_values_on_stack():
     eval_stack.push(43)
     locals_dict = Locals()
     func_frame = FuncFrame(eval_stack, locals_dict)
+    pop_top = PopTopProcessor()
 
     # Act
-    PopTopProcessor.execute(None, func_frame, FuncState(1), [])
+    pop_top.execute(None, func_frame, FuncState(1), Heap())
 
     # Assert
     assert eval_stack.length == 1

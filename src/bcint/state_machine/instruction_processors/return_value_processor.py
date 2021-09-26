@@ -7,8 +7,7 @@ from src.bcint.state_machine.heap import Heap
 
 class ReturnValueProcessor(InstructionProcessorBase):
 
-    @staticmethod
-    def execute(operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
+    def execute(self, operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
         if func_frame.eval_stack.length != 1:
             raise Exception('At this point the evaluation stack should contain a single value that is supposed to be returned')
         func_state.flow_interruption = FlowInterruption.RETURN

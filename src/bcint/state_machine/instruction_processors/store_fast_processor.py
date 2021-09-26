@@ -6,8 +6,7 @@ from src.bcint.state_machine.heap import Heap
 
 class StoreFastProcessor(InstructionProcessorBase):
 
-    @staticmethod
-    def execute(operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
+    def execute(self, operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
         value = func_frame.eval_stack.pop()
         func_frame.locals_dict.save(operand, value)
 

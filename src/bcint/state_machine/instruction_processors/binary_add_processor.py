@@ -6,8 +6,7 @@ from src.bcint.state_machine.heap import Heap
 
 class BinaryAddProcessor(InstructionProcessorBase):
 
-    @staticmethod
-    def execute(operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
+    def execute(self, operand, func_frame: FuncFrame, func_state: FuncState, heap: Heap):
         value2 = func_frame.eval_stack.pop()
         value1 = func_frame.eval_stack.pop()
         func_frame.eval_stack.push(value1 + value2)

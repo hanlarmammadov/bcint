@@ -13,9 +13,10 @@ def test_execute():
     eval_stack.push(6)
     locals_dict = Locals()
     func_frame = FuncFrame(eval_stack, locals_dict)
+    binary_add = BinaryAddProcessor()
 
     # Act
-    BinaryAddProcessor.execute(None, func_frame, FuncState(1), Heap())
+    binary_add.execute(None, func_frame, FuncState(1), Heap())
 
     # Assert
     assert eval_stack.length == 1

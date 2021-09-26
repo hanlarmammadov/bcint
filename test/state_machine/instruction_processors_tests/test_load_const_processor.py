@@ -10,9 +10,10 @@ def test_execute():
     eval_stack = EvalStack()
     locals_dict = Locals()
     func_frame = FuncFrame(eval_stack, locals_dict)
+    load_const = LoadConstProcessor()
 
     # Act
-    LoadConstProcessor.execute(4, func_frame, FuncState(1), Heap())
+    load_const.execute(4, func_frame, FuncState(1), Heap())
 
     # Assert
     assert eval_stack.length == 1

@@ -3,8 +3,10 @@ from src.bcint.state_machine.func_state_machine import FuncStateMachine
 from src.bcint.state_machine.function import Function
 from src.bcint.state_machine.processors import Processors
 from src.bcint.state_machine.heap import Heap
+import pytest
 
 
+@pytest.mark.skip(reason="not implemented yet")
 def test_return_integer():
     # Arrange
     def function():
