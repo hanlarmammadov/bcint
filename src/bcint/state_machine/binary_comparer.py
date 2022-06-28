@@ -10,7 +10,7 @@ class BinaryComparer:
             return BinaryComparer._less_than_or_equal(value1, value2)
         elif comparison == '>=':
             return BinaryComparer._greater_than_or_equal(value1, value2)
-        elif comparison == '=':
+        elif comparison == '==':
             return BinaryComparer._equal(value1, value2)
         elif comparison == '!=':
             return BinaryComparer._not_equal(value1, value2)

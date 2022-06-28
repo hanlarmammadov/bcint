@@ -16,6 +16,10 @@ class Instruction:
     def operand(self):
         return self._operand
 
+    @operand.setter
+    def operand(self, value):
+        self._operand = value
+
     @property
     def offset(self):
         return self._offset
